@@ -1,0 +1,52 @@
+# Node dependencies
+/node_modules/
+
+# TypeScript build output
+/dist/
+/build/
+/out/
+
+# TypeScript config artifacts
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+logs/
+*.log
+
+# Environment variables
+.env
+.env.*.local
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Cache
+.cache/
+.tmp/
+.temp/
+
+# PM2 logs
+~/.pm2/logs
+
+# Optional: If using Express file uploads
+/uploads/
+
+# Optional: If using Prisma
+prisma/*.db
+prisma/*.db-journal
