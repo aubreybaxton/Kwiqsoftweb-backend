@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
 
+app.use('/api/user',userRouter)
+
 app.get('/', (req, res) => {
     res.send('Hello from MyApp Backend!');
 })
