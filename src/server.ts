@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import { corsOptions } from './constants/config.ts';
+import { corsOptions } from './constants/cors.config.ts';
 import cookieParser from 'cookie-parser';
+import dbconnection from './db/connection.db.ts';
+import { userRouter } from './routes/user.routes';
 
 const app = express();
 
@@ -11,12 +13,18 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
 
-app.use('/api/user',userRouter)
+
 
 app.get('/', (req, res) => {
     res.send('Hello from MyApp Backend!');
 })
 
-app.listen(PORT, () => {
-    console.log(`MyApp Backend is running on port ${PORT}`);
+app.use('/api/user', userRouter);
+
+dbconnection().then(() => {
+    app.listen(PORT, () => {
+        console.log(`MyApp Backend is running on port ${PORT}`);
+    })
+}).catch((error) => {
+    console.error('Failed to connect to the database:', error);
 })
